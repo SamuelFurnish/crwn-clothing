@@ -1,4 +1,3 @@
-import { confirmPasswordReset } from 'firebase/auth';
 import { useState } from 'react';
 import FormInput from '../form-input/form-input';
 import Button from '../button/button'
@@ -13,7 +12,6 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
-
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
 
@@ -29,8 +27,8 @@ const SignUpForm = () => {
         }
 
         try {
-            const {user} = await createAuthUserWithEmailAndPassword(email, password);
-            console.log({displayName});
+            const { user } = await createAuthUserWithEmailAndPassword(email, password);
+     
             await createUserDocumentFromAuth(user, { displayName } );
             resetFormFields();
         } catch(error) {
