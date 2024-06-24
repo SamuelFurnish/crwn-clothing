@@ -6,6 +6,7 @@ import {
     createUserDocumentFromAuth,
     signInAuthUserWithEmailAndPassword 
     } from '../../utils/firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 import './sign-in-form.scss';
 
 const defaultFormFields = {
@@ -24,7 +25,6 @@ const SignInForm = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
-        
     };
 
     const handleSubmit = async (event) => {
